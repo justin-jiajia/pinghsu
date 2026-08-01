@@ -131,7 +131,7 @@ function themeInit($archive){
 }
 
 function showThumb($obj,$size=null,$link=false){
-    preg_match_all( "/<[img|IMG].*?src=[\'|\"](.*?)[\'|\"].*?[\/]?>/", $obj->content, $matches );
+    preg_match_all( '/<img\s+[^>]*src=["\']([^"\']*)["\'][^>]*>/i', $obj->content, $matches );
     $thumb = '';
     $options = Typecho_Widget::widget('Widget_Options');
     $attach = $obj->attachments(1)->attachment;
